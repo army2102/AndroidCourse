@@ -3,6 +3,9 @@ package androidcourse.naetirat.mvcstructure.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -16,6 +19,7 @@ import androidcourse.naetirat.mvcstructure.R;
 public class MainFragment extends android.support.v4.app.Fragment {
 
     int someVar;
+    int x, y, z;
     TextView tvHello;
 
     public static MainFragment newInstance(int someVar) {
@@ -52,4 +56,25 @@ public class MainFragment extends android.support.v4.app.Fragment {
     public void setHelloText(String text) {
         tvHello.setText(text);
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (savedInstanceState != null) {
+            //restore state here
+        }
+
+    }
+
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
+    }
+
+
+
 }
